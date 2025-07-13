@@ -53,7 +53,7 @@ This is the main configuration file that tells GitHub Codespaces how to build an
     1.  Install `pnpm` and the `azure-functions-core-tools` using `npm`.
     2.  Install `checkov` using `pip3`.
     3.  **Crucially, it creates the Terraform CLI configuration file (`~/.terraform.d/credentials.tfrc.json`) and populates it with the `TF_API_TOKEN` environment variable.** This step automates the `terraform login` process.
-
+![Terraform API Key Authentication](Delete/image2.png)
 ---
 
 ## Variable Management Strategy
@@ -77,7 +77,7 @@ There is **one special variable** that must be stored as a GitHub Codespaces sec
     1.  In your GitHub repository, navigate to **`Settings` > `Secrets and variables` > `Codespaces`**.
     2.  Click **`New repository secret`**.
     3.  For the name, enter exactly `TF_API_TOKEN`.
-    4.  For the value, paste an API token you have generated from your Terraform Cloud account.
+    4.  For the value, paste an API token you have generated from your [Terraform Cloud account](https://app.terraform.io/app/settings/tokens?source=terraform-login). 
     5.  The `remoteEnv` block in the `devcontainer.json` file ensures this secret is injected into the environment, and the `postCreateCommand` uses it to configure Terraform automatically.
 
 ### Flexibility: Using Other Backends
@@ -112,3 +112,4 @@ While this environment is optimized for Terraform Cloud, you are free to use any
         terraform plan
         terraform apply
         ```
+![Terraform API Key Authentication](Delete/image3.png)
