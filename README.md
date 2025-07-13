@@ -83,8 +83,8 @@ There is **one special variable** that must be stored as a GitHub Codespaces sec
 1.  **Fork this Repository:** Start by forking this repository to your own GitHub account.
 2.  **Configure Terraform Cloud:**
     * Log in to your [Terraform Cloud](https://app.terraform.io/session) account and create a new workspace.
-    * Generate a API via [this link](https://app.terraform.io/app/settings/tokens?source=terraform-login). 
-    * In the workspace settings, go to the "Variables" section and add all the necessary variables for your Azure deployment (e.g., `ARM_CLIENT_ID`, `ARM_CLIENT_SECRET`, etc.).
+    * In the workspace settings, go to the "Variables" section and add all the necessary variables for your Terraform/Azure deployment (e.g., `ARM_CLIENT_ID`, `ARM_CLIENT_SECRET`, etc.). All variable seen within the terraform config files must be added here.
+    * Generate a API via [this link](https://app.terraform.io/app/settings/tokens?source=terraform-login). This API token will be leveraged for the **`TF_API_TOKEN`** variable.
 3.  **Create the GitHub Secret:**
     * In your forked repository, go to **`Settings` > `Secrets and variables` > `Codespaces`**.
     * Create the **`TF_API_TOKEN`** secret with a valid token from Terraform Cloud.
