@@ -72,7 +72,7 @@ It is **highly recommended** that you use a Terraform Cloud workspace to manage 
 There is **one special variable** that must be stored as a GitHub Codespaces secret: `TF_API_TOKEN`.
 
 * **Purpose:** This token is **not** for an Azure service principal. It is the API token that allows the Terraform CLI *inside your Codespace* to authenticate with your Terraform Cloud account. Once authenticated, Terraform can then access all the other variables you stored in your workspace.
-
+![Terraform API Key Authentication](Delete/image1.png)
 * **How to Set It Up:**
     1.  In your GitHub repository, navigate to **`Settings` > `Secrets and variables` > `Codespaces`**.
     2.  Click **`New repository secret`**.
