@@ -29,8 +29,8 @@ This Codespaces image includes:
 
 ## Environment Configuration Deep Dive
 
-The entire environment is defined within the `.devcontainer` directory. Let's break down the key files.
-
+The entire environment is defined within the `.devcontainer` directory via two files. Let's break down the key files.
+![Terraform API Key Authentication](Delete/image2.png)
 ### `Dockerfile`
 
 This file defines the base image and installs all the system-level tools.
@@ -53,7 +53,6 @@ This is the main configuration file that tells GitHub Codespaces how to build an
     1.  Install `pnpm` and the `azure-functions-core-tools` using `npm`.
     2.  Install `checkov` using `pip3`.
     3.  **Crucially, it creates the Terraform CLI configuration file (`~/.terraform.d/credentials.tfrc.json`) and populates it with the `TF_API_TOKEN` environment variable.** This step automates the `terraform login` process.
-![Terraform API Key Authentication](Delete/image2.png)
 ---
 
 ## Variable Management Strategy
@@ -90,6 +89,7 @@ While this environment is optimized for Terraform Cloud, you are free to use any
 
 ## Getting Started: A Step-by-Step Guide
 
+![Terraform API Key Authentication](Delete/image3.png)
 1.  **Fork this Repository:** Start by forking this repository to your own GitHub account.
 2.  **Configure Terraform Cloud:**
     * Log in to your Terraform Cloud account and create a new workspace.
@@ -112,4 +112,3 @@ While this environment is optimized for Terraform Cloud, you are free to use any
         terraform plan
         terraform apply
         ```
-![Terraform API Key Authentication](Delete/image3.png)
