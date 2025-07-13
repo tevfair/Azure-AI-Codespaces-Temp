@@ -92,7 +92,8 @@ While this environment is optimized for Terraform Cloud, you are free to use any
 ![Terraform API Key Authentication](Delete/image3.png)
 1.  **Fork this Repository:** Start by forking this repository to your own GitHub account.
 2.  **Configure Terraform Cloud:**
-    * Log in to your Terraform Cloud account and create a new workspace.
+    * Log in to your [Terraform Cloud](https://app.terraform.io/session) account and create a new workspace.
+    * Generate a API via [this link](https://app.terraform.io/app/settings/tokens?source=terraform-login). 
     * In the workspace settings, go to the "Variables" section and add all the necessary variables for your Azure deployment (e.g., `ARM_CLIENT_ID`, `ARM_CLIENT_SECRET`, etc.).
 3.  **Create the GitHub Secret:**
     * In your forked repository, go to **`Settings` > `Secrets and variables` > `Codespaces`**.
