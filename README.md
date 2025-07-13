@@ -53,6 +53,8 @@ This is the main configuration file that tells GitHub Codespaces how to build an
     1.  Install `pnpm` and the `azure-functions-core-tools` using `npm`.
     2.  Install `checkov` using `pip3`.
     3.  **Crucially, it creates the Terraform CLI configuration file (`~/.terraform.d/credentials.tfrc.json`) and populates it with the `TF_API_TOKEN` environment variable.** This step automates the `terraform login` process.
+
+**Note**: While this environment is optimized for Terraform Cloud, you are free to use any backend you choose. 
 ---
 
 ## Variable Management Strategy
@@ -72,18 +74,6 @@ There is **one special variable** that must be stored as a GitHub Codespaces sec
 
 * **Purpose:** This token is **not** for an Azure service principal. It is the API token that allows the Terraform CLI *inside your Codespace* to authenticate with your Terraform Cloud account. Once authenticated, Terraform can then access all the other variables you stored in your workspace.
 ![Terraform API Key Authentication](Delete/image1.png)
-* **How to Set It Up:**
-    1.  In your GitHub repository, navigate to **`Settings` > `Secrets and variables` > `Codespaces`**.
-    2.  Click **`New repository secret`**.
-    3.  For the name, enter exactly `TF_API_TOKEN`.
-    4.  For the value, paste an API token you have generated from your [Terraform Cloud account](https://app.terraform.io/app/settings/tokens?source=terraform-login). 
-    5.  The `remoteEnv` block in the `devcontainer.json` file ensures this secret is injected into the environment, and the `postCreateCommand` uses it to configure Terraform automatically.
-
-### Flexibility: Using Other Backends
-
-While this environment is optimized for Terraform Cloud, you are free to use any backend you choose. If you prefer to use Azure Storage for your state files, you can simply:
-1.  Update your `backend.tf` file to use the `azurerm` backend.
-2.  Manage your secrets (like service principal credentials) using a different method, such as GitHub Actions secrets for CI/CD pipelines.
 
 ---
 
